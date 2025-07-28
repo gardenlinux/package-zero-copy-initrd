@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+ifeq ($(DEB_HOST_ARCH),amd64)
+	$(MAKE) init-x86_64
+endif
+ifeq ($(DEB_HOST_ARCH),arm64)
+	$(MAKE) init-aarch64
+endif
+
+override_dh_auto_install:
+ifeq ($(DEB_HOST_ARCH),amd64)
+	install -Dm755 init-x86_64 debian/zero-copy-initrd/usr/libexec/zero-copy-initrd/init-x86_64
+endif
+ifeq ($(DEB_HOST_ARCH),arm64)
+	install -Dm755 init-aarch64 debian/zero-copy-initrd/usr/libexec/zero-copy-initrd/init-aarch64
+endif

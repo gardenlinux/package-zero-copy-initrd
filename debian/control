@@ -1,0 +1,14 @@
+Source: zero-copy-initrd
+Section: utils
+Priority: optional
+Maintainer: Garden Linux Builder <contact@gardenlinux.io>
+Build-Depends: debhelper-compat (= 13), gcc-aarch64-linux-gnu, gcc-x86-64-linux-gnu, make, curl, ca-certificates, rsync, xz-utils
+Standards-Version: 4.6.1
+Rules-Requires-Root: no
+
+Package: zero-copy-initrd
+Architecture: any
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Provides: linux-initramfs-tool
+Description: zero-copy-initrd

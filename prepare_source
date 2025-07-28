@@ -1,0 +1,2 @@
+git_src https://github.com/gardenlinux/zero-copy-initrd.git
+cp -r debian "$dir/src/"
